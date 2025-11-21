@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HexSociety</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">HexSociety</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="guides.html">Guides</a>
+            <a href="security.html">Security Tips</a>
+            <a href="tools.html">Tools</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Recover Your Accounts Safely & Legally</h1>
+        <p>Learn how to secure and recover your accounts using official methods</p>
+
+        <div class="hero-search">
+            <input type="text" id="searchInput" placeholder="Search account...">
+            <button id="searchBtn">Search</button>
+            <ul id="suggestions" class="suggestions-list"></ul>
+        </div>
+
+        <!-- Optional: Popular accounts below input -->
+        <p class="popular-guides">
+            Popular: 
+            <a href="guides.html#gmail">Gmail</a> | 
+            <a href="guides.html#instagram">Instagram</a> | 
+            <a href="guides.html#facebook">Facebook</a> | 
+            <a href="guides.html#steam">Steam</a> | 
+            <a href="guides.html#tiktok">TikTok</a>
+        </p>
+    </section>
+
+    <!-- Sample Guide Section -->
+    <section class="guide-sample">
+        <h2>Sample Guide: Recover Gmail</h2>
+        <ol>
+            <li>Go to <a href="https://accounts.google.com/signin/recovery" target="_blank">Gmail Recovery Page</a></li>
+            <li>Enter your email or phone number</li>
+            <li>Request verification code</li>
+            <li>Follow prompts to reset password</li>
+        </ol>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>HexSociety © 2025 | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- JavaScript for Search Suggestions -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const suggestionsList = document.getElementById('suggestions');
+        const searchBtn = document.getElementById('searchBtn');
+
+        // Example accounts
+        const suggestions = ['Gmail', 'Instagram', 'Facebook', 'Steam', 'TikTok', 'Roblox', 'Twitter', 'Discord'];
+
+        // Show suggestions on focus
+        searchInput.addEventListener('focus', () => {
+            renderSuggestions(suggestions);
+            suggestionsList.style.display = 'block';
+        });
+
+        // Filter suggestions while typing
+        searchInput.addEventListener('input', () => {
+            const value = searchInput.value.toLowerCase();
+            const filtered = suggestions.filter(item => item.toLowerCase().includes(value));
+            renderSuggestions(filtered);
+        });
+
+        // Hide suggestions if clicked outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.hero-search')) {
+                suggestionsList.style.display = 'none';
+            }
+        });
+
+        function renderSuggestions(items) {
+            suggestionsList.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                li.onclick = () => {
+                    searchInput.value = item;
+                    suggestionsList.style.display = 'none';
+                    // Redirect to page (optional)
+                    // window.location.href = `${item.toLowerCase()}.html`;
+                }
+                suggestionsList.appendChild(li);
+            });
+        }
+
+        // Search button click
+        searchBtn.addEventListener('click', () => {
+            const value = searchInput.value.trim();
+            if(value) {
+                alert(`You searched for "${value}". Redirect to the guide page here.`);
+                // Optional redirect
+                // window.location.href = `${value.toLowerCase()}.html`;
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+/* --- Color Palette --- */
+:root {
+    --primary-blue: #1E90FF;
+    --primary-green: #00C48C;
+    --accent-blue: #29B6F6;
+    --bg-dark: #0F1A23;
+    --text-light: #F0F3F7;
+    --card-bg: #16232B;
+}
+
+/* --- Global Styles --- */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-green);
+}
+
+/* --- Header --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+header .logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav a {
+    margin-left: 25px;
+    font-weight: 500;
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+    background: linear-gradient(120deg, #0F1A23, #16232B);
+}
+
+.hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* --- Hero Search & Suggestions --- */
+.hero-search {
+    position: relative;
+    display: inline-flex; /* align input + button side by side */
+}
+
+.hero-search input {
+    padding: 12px 15px;
+    width: 300px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+    font-size: 16px;
+}
+
+.hero-search button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.hero-search button:hover {
+    background-color: var(--primary-blue);
+}
+
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--card-bg);
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.suggestions-list li {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.suggestions-list li:hover {
+    background-color: var(--primary-blue);
+}
+
+/* --- Sample Guide Section --- */
+.guide-sample {
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.guide-sample h2 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+.guide-sample ol li {
+    margin-bottom: 10px;
+}
+
+/* --- Footer --- */
+footer {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: var(--card-bg);
+    font-size: 14px;
+}
+
+/* --- Cards Section (Optional, can remove if not used) --- */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1 1 250px;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.card.blue {
+    background-color: var(--primary-blue);
+}
+
+.card.green {
+    background-color: var(--primary-green);
+}
+
+.card.gradient {
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-green));
+}
+
+.cards a.card {
+    display: block;
+    color: var(--text-light);
+    text-decoration: none;
+    text-align: center;
+}
+
+.tools-section {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.tool-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--text-light);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.tool-card h3 {
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tool-card p, .tool-card ul {
+    margin-bottom: 15px;
+}
+
+.tool-card input {
+    width: 80%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.tool-card button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.tool-card button:hover {
+    background-color: var(--primary-blue);
+}
+
+/* Gradient/Color Classes */
+.tool-card.blue { background-color: var(--primary-blue); }
+.tool-card.green { background-color: var(--primary-green); }
+.tool-card.gradient { background: linear-gradient(45deg, var(--primary-blue), var(--primary-green)); }
+
+.tool-card a {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+.tool-card a:hover {
+    color: var(--accent-blue);
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--card-bg);
+    color: var(--text-light);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.tab-button.active {
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-green));
+    color: #fff;
+}
+
+.tab-button:hover {
+    background-color: var(--primary-blue);
+    color: #fff;
+}
+
+.tab-content {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.tab-content.active {
+    display: block;
+}

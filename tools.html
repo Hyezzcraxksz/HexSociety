@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HexSociety - Tools</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">HexSociety</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="guides.html">Guides</a>
+            <a href="security.html">Security Tips</a>
+            <a href="tools.html">Tools</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Safe Account Recovery Tools</h1>
+        <p>All tools are fully legal and designed to help you recover and secure your accounts.</p>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools-section">
+    <div class="tabs">
+        <button class="tab-button active" data-tab="generator">Password Generator</button>
+        <button class="tab-button" data-tab="checker">Password Strength Checker</button>
+        <button class="tab-button" data-tab="2fa">2FA Guide</button>
+        <button class="tab-button" data-tab="recovery">Recovery Links</button>
+        <button class="tab-button" data-tab="security">Security Tips</button>
+    </div>
+
+    <div class="tab-content" id="generator">
+        <h3>Password Generator</h3>
+        <button onclick="generatePassword()">Generate Password</button>
+        <input type="text" id="generatedPassword" readonly placeholder="Your password will appear here">
+    </div>
+
+    <div class="tab-content" id="checker">
+        <h3>Password Strength Checker</h3>
+        <input type="text" id="passwordCheck" placeholder="Enter password to check">
+        <button onclick="checkStrength()">Check Strength</button>
+        <p id="strengthResult"></p>
+    </div>
+
+    <div class="tab-content" id="2fa">
+        <h3>2FA Guide</h3>
+        <ul>
+            <li><a href="https://support.google.com/accounts/answer/185839" target="_blank">Gmail</a></li>
+            <li><a href="https://help.instagram.com/566810106808145" target="_blank">Instagram</a></li>
+            <li><a href="https://help.steampowered.com/en/faqs/view/2B0F-CE5A-8F34-68F7" target="_blank">Steam</a></li>
+        </ul>
+    </div>
+
+    <div class="tab-content" id="recovery">
+        <h3>Recovery Links</h3>
+        <ul>
+            <li><a href="https://accounts.google.com/signin/recovery" target="_blank">Gmail</a></li>
+            <li><a href="https://www.facebook.com/login/identify" target="_blank">Facebook</a></li>
+            <li><a href="https://www.instagram.com/accounts/password/reset/" target="_blank">Instagram</a></li>
+            <li><a href="https://help.steampowered.com/en/faqs/view/2B0F-CE5A-8F34-68F7" target="_blank">Steam</a></li>
+            <li><a href="https://www.tiktok.com/forgot-password" target="_blank">TikTok</a></li>
+        </ul>
+    </div>
+
+    <div class="tab-content" id="security">
+        <h3>Security Tips</h3>
+        <ol>
+            <li>Enable 2FA on all accounts.</li>
+            <li>Use strong, unique passwords.</li>
+            <li>Check recent logins and remove unknown devices.</li>
+            <li>Be cautious with phishing emails.</li>
+            <li>Keep recovery info up to date.</li>
+        </ol>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <p>HexSociety © 2025 | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Tools JavaScript -->
+    <script>
+        // Password Generator
+        function generatePassword() {
+            const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~";
+            let password = "";
+            for(let i=0; i<12; i++) {
+                password += charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+            document.getElementById('generatedPassword').value = password;
+        }
+
+        // Password Strength Checker
+        function checkStrength() {
+            const pw = document.getElementById('passwordCheck').value;
+            let result = "";
+            if(pw.length < 6) result = "Weak";
+            else if(pw.length < 10) result = "Medium";
+            else result = "Strong";
+            document.getElementById('strengthResult').textContent = `Strength: ${result}`;
+        }
+    </script>
+
+</body>
+</html>
